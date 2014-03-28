@@ -1,49 +1,3 @@
-import time
-
-class timer():
-    """ """
-    def __init__(self):
-        """ """
-        self.startTime = time.time()
-        self.previousTime = time.time()
-        self.outFile = ''
-        self.firstRun = True
-        self.runningTotal = 0.0
-        self.sections = ['prep', 'observed', 'parameters', 'rejection']
-        self.times = {'prep': 0.0, 'observed': 0.0, 'parameters': 0.0, 
-                    'rejection': 0.0}
-        
-    def outputTimes(self):
-        """ """
-        file = open(self.outFile, 'w')
-        if self.firstRun is True:
-            print >> file, '###', time.strftime("%a, %d %b %Y %H:%M:%S +0000", time.gmtime())
-            self.firstRun = False
-        for (i, j) in self.runParams:
-            print >> file, i + ':' + str(j),
-        print >> file, '\n',
-        print >> file, 'Stats:',
-        for i in self.statNames:
-            print >> file, i,
-        print >> file, '\n',
-        for i in range(len(self.paramNames)):
-            print >> file, 'Params' + str(i + 1) + ':',
-            for j in paramNames[i]:
-                print >> file, j,
-            print >> file, '\n',
-        for i in self.sections:
-            print >> file, i + ':', str(self.times[i]),
-        print >> file, '\nTotal: ' + str(self.runningTotal)
-        
-        file.close()
-        
-    def add_time(self, section):
-        """ """
-        toadd = time.time() - self.previousTime
-        self.times[section] += toadd
-        self.runningTotal += time.time() - self.startTime
-        self.previousTime = time.time()
-
 import os
 import re
 import sys
@@ -51,8 +5,7 @@ import getopt
 import tempfile
 from types import TypeType
 
-#sys.path.append('/home/equipe/dynadiv/commun/egglib-2.0.1')
-
+# version egglib-2.0.1.
 import egglib 
 
 opts, args = getopt.getopt(sys.argv[1:], '', ['obsIters=', 'parIters=', 'tol=', 'dirExt=', 'nsam=', 'nloci=', 
@@ -60,7 +13,7 @@ opts, args = getopt.getopt(sys.argv[1:], '', ['obsIters=', 'parIters=', 'tol=', 
                 'rejOutDir=', 'number='])
 
 # --obsIters, --parIters and --tol must be specified on the command line if the observations, parameters or the 
-# rejection steps are to be performed.
+# rejection steps respectively are to be performed.
 dictOptions = {'obsIters': None, 'parIters': None, 'tol': None, 'dirExt': '', 'nsam': 20, 'nloci': 30, 'length': 750,  
                 'botNe': 0.1, 'theta': 0.0015, 'parWriteType': 'w', 'parInDir': '', 'parOutDir': '', 'obsInDir': '', 
                 'obsOutDir': '', 'rejOutDir':'', 'number': 10}
@@ -68,6 +21,7 @@ dictOptions = {'obsIters': None, 'parIters': None, 'tol': None, 'dirExt': '', 'n
 for (i, j) in opts:
     dictOptions[i.replace('--', '')] = j
 
+# Specify the steps that should be taken.
 generateObservations = False
 generateParameters = False
 performRejectionStep = False
@@ -106,14 +60,10 @@ if dictOptions['tol'] is not None:
 else:
     tolerance = None
 
-#inputFileDir = os.path.join('/home/equipe/dynadiv/stocks/stage2', dictOptions['dirExt'])
 inputFileDir = os.path.join('/Users/mist/Documents/Projects/morrisonicola/sims/stage2', dictOptions['dirExt'])
-
 #inputFileDir = os.path.join('.', dictOptions['dirExt'])
 
-#outputFileDir = os.path.join('/home/equipe/dynadiv/stocks/stage2', dictOptions['dirExt'])
 outputFileDir = os.path.join('/Users/mist/Documents/Projects/morrisonicola/sims/stage2', dictOptions['dirExt'])
-
 #outputFileDir = os.path.join('.', dictOptions['dirExt'])
 
 # Global parameters
@@ -122,14 +72,14 @@ number = int(dictOptions['number'])
 nloci = int(dictOptions['nloci'])
 length = int(dictOptions['length'])
 modelNames = ['SNM', 'BNM']
-#statNames = ['thetaW', 'thetaW_sd', 'thetaW_q05', 'thetaW_q95', 'thetaPi', 'thetaPi_sd', 'thetaPi_q05', 'thetaPi_q95', 
-#            'thetaH', 'thetaH_sd', 'thetaH_q05', 'thetaH_q95', 'He', 'He_sd', 'He_q05', 'He_q95']
+
+# These were the stats used in the preliminary analyses:
+#statNames = ['thetaW', 'thetaW_sd', 'thetaW_q05', 'thetaW_q95', 'thetaPi', 'thetaPi_sd', 'thetaPi_q05', 'thetaPi_q95', 'thetaH', 'thetaH_sd', 'thetaH_q05', 'thetaH_q95', 'He', 'He_sd', 'He_q05', 'He_q95']
             
-statNames = ['thetaW', 'thetaW_sd', 'thetaW_q05', 'thetaW_q95', 'thetaPi', 'thetaPi_sd', 'thetaPi_q05', 'thetaPi_q95', 
-            'thetaH', 'thetaH_sd', 'thetaH_q05', 'thetaH_q95', 'He', 'He_sd', 'He_q05', 'He_q95', 
-            'S', 'S_sd', 'S_q05', 'S_q95', 'D', 'D_sd', 'D_q05', 'D_q95', 'H', 'H_sd', 'H_q05', 'H_q95', 
-            's1', 's2', 's3']
+statNames = ['thetaW', 'thetaW_sd', 'thetaW_q05', 'thetaW_q95', 'thetaPi', 'thetaPi_sd', 'thetaPi_q05', 'thetaPi_q95', 'thetaH', 'thetaH_sd', 'thetaH_q05', 'thetaH_q95', 'He', 'He_sd', 'He_q05', 'He_q95', 'S', 'S_sd', 'S_q05', 'S_q95', 'D', 'D_sd', 'D_q05', 'D_q95', 'H', 'H_sd', 'H_q05', 'H_q95', 's1', 's2', 's3']
             
+
+# Stats used in the rejection step.
 statsForRejection = ['thetaW', 'thetaPi', 'He', 'D', 'H']
 #statsForRejection = ['s1', 's2', 's3']
 #statsForRejection = ['thetaW', 's1', 's2', 's3']
@@ -181,15 +131,7 @@ if generateParameters is True:
 if performRejectionStep is True:
     outRej = [os.path.join(inputFileDir, rejectionOutDir, 'out' + str(tolerance).replace('.', '') + '_' + i + idString) for i in modelNames]
 
-Timer = timer()
 outInfo = os.path.join(inputFileDir, 'info_' + idString)
-Timer.outFile = outInfo
-Timer.runParams = [('obsIterations', obsIterations), ('parIterations', parIterations), ('nsampels', nsamples), 
-                ('nloci', nloci), ('length', length), ('tolerance', tolerance), ('obsThetaBp', obsThetaBp), 
-                ('obsRhoBp', obsRhoBp), ('obsBotDuration', obsBotDuration), ('obsBotEnd', obsBotEnd), 
-                ('obsBotNe', obsBotNe), ('obsAncNe', obsAncNe)]
-Timer.statNames = statNames
-Timer.paramNames = paramNames
 
 # A couple of function to keep things tidy...
 #############################################
@@ -225,6 +167,7 @@ def getStats(sims, length):
     """ """
     tw, tp, th, k = [], [], [], []
     for sim in sims:
+        
         outSeq = 'A' * sim.polymorphism(skipDifferentiationStats=True, skipOutgroupBasedStats=True, skipAllHaplotypeStats=True, skipHaplotypeDifferentiationStats=True)['S']
         sim.append('out', outSeq, group = 999)
         poly = sim.polymorphism(skipOutgroupBasedStats=False)
@@ -320,14 +263,11 @@ durationPrior = obsBotDuration
 timePrior = (0.0, 1.5)
 freqPrior = (0.0, 1.0)
 
-Timer.add_time('prep')
-Timer.outputTimes()
-
 # Generate Observations or take them from a file
 ################################################
 
 if generateObservations is True:
-    #print 'Generating observations...'
+    
     modelClasses = []
     mutator = egglib.simul.CoalesceFiniteAlleleMutator(theta = obsTheta)
     snmParamSet = egglib.simul.CoalesceParamSet(nsamples, rho = obsRho, nsites = length)
@@ -337,6 +277,7 @@ if generateObservations is True:
     bnmParamSet.changeAllPopulationSizes(obsBotEnd + obsBotDuration, obsAncNe)
     modelClasses.append(bnmParamSet)
     allObsStats = []
+    
     for mod in range(len(modelNames)):
         if printObservations is True:
             obsOutFile = open(outObs[mod], 'w')
@@ -354,8 +295,8 @@ if generateObservations is True:
         allObsStats.append(obsStats)
         if printObservations is True:
             obsOutFile.close()
+            
 elif generateObservations is False and performRejectionStep is True:
-    #print 'Retrieving observed...'
     allObsStats = []
     for mod in range(len(modelNames)):
         obsInFile = open(inObs[mod], 'r')
@@ -365,9 +306,6 @@ elif generateObservations is False and performRejectionStep is True:
             obsStats.append(stats)
         allObsStats.append(obsStats)
         obsInFile.close()
-        
-Timer.add_time('observed')
-Timer.outputTimes()
 
 # Some more functions...
 ##############################################
@@ -403,7 +341,6 @@ def bnm(priorDraw, nsamples, nloci, length):
 ##############################################
 
 if generateParameters is True:
-    #print 'Generate parameters...'
     # Setup priors
     random = egglib.egglib_binding.Random()
     # SNM
@@ -436,48 +373,48 @@ if generateParameters is True:
             parOutFile.write(str(prior) + ' # ' + ' '.join(simStats) + '\n')
         parOutFile.close()
 
-Timer.add_time('parameters')
-Timer.outputTimes()
-     
 # Rejection step
 ##############################################
 
 if performRejectionStep is True:
-    #print 'performing rejection step...'
+    
     if generateParameters is not True:
         rejData = [(inParams[i], len(paramNames[i])) for i in range(len(modelNames))]
     else:
         rejData = [(outParams[i], len(paramNames[i])) for i in range(len(modelNames))]
+        
     # Need to parse parameters file so that only certain stats are used.    
     if len(statNames) != len(statsForRejection) and parseFiles is True:
-        #print 'parsing stats...'
+        
         for i in range(len(rejData)):
             pFile = rejData[i][0]
             nprms = rejData[i][1]
             infile = open(pFile, 'r')
             outName = pFile.replace('.txt', '_parsed.txt')
             outfile = open(outName, 'w')
+            
             for line in infile:
                 separateLine = line.rstrip().split(' # ')
                 parHalf, statHalf = separateLine[0], separateLine[1]
                 cutStats = [statHalf.split()[j] for j in statIndices]
                 if 'NaN' not in cutStats:
                     print >> outfile, parHalf, '#', ' '.join(cutStats) + '\n',
+                    
             rejData[i] = (outName, nprms)
             infile.close()
             outfile.close()
             
     for mod in range(len(modelNames)):
+        
         fileForParameters = rejData[mod][0]
         theNumberOfParameters = rejData[mod][1]
         if len(statNames) != len(statsForRejection) and '_parsed' not in fileForParameters:
             rejData[mod] = (fileForParameters.replace('.txt', '_parsed.txt'), theNumberOfParameters)        
     
-    #for mod in range(len(modelNames)):
-    for mod in [1]:
+    for mod in range(len(modelNames)):
+    #for mod in [1]:
     #for mod in [0]:
         rejOutFile = open(outRej[mod], 'w')
-        #print 'actual rejection step...', outRej[mod]
         print >> rejOutFile, 'SNM', 'BNM'
         obsStats = allObsStats[mod]
         for iterObs in range(len(obsStats)):
@@ -520,9 +457,6 @@ if performRejectionStep is True:
             os.remove(tmpfile)
         
         rejOutFile.close()
-
-Timer.add_time('rejection')
-Timer.outputTimes()
 
 # Regression step
 ###########################
