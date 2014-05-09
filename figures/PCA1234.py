@@ -2,8 +2,6 @@ import os
 import sys
 import numpy
 
-sys.path.append("/home/mist/Documents/Codes/evolib")
-
 import dataTools
 from statTools import PCA
 
