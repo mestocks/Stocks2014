@@ -22,7 +22,8 @@ obsSNM.n20l30t0015SFS3 <- read.table("./data/obs/obs_SNMnlst_20x30x01x0015.txt",
 
 
 #########################
-#pdf("F3_sevTSFS32x2.pdf", width = 8, height = 8)
+#setEPS()
+#postscript("F3_sevTSFS32x2.eps")
 par(mfrow = c(2, 2))
 #########################
 

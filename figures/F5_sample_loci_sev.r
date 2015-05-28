@@ -8,11 +8,14 @@ plotSevFig <- function() {
 		table.name$Bayes <- table.name$BNM / table.name$SNM
 		length(table.name[table.name$Bayes >= factor, ]$Bayes) / length(table.name$Bayes)
 	}
-	pwr4.n10l15t0015sev05DH <- read.table("/Users/mist/Documents/Projects/morrisonicola/sims/stage2/sfs/out/num3/ss_TPHeDH/out0001_BNMnlst_10x15x05x0015.txt", header = T)
-	pwr4.n10l15t0015sev03DH <- read.table("/Users/mist/Documents/Projects/morrisonicola/sims/stage2/sfs/out/num3/ss_TPHeDH/out0001_BNMnlst_10x15x03x0015.txt", header = T)
-	pwr4.n10l15t0015sev02DH <- read.table("/Users/mist/Documents/Projects/morrisonicola/sims/stage2/sfs/out/num3/ss_TPHeDH/out0001_BNMnlst_10x15x02x0015.txt", header = T)
-	pwr4.n10l15t0015DH <- read.table("/Users/mist/Documents/Projects/morrisonicola/sims/stage2/sfs/out/num3/ss_TPHeDH/out0001_BNMnlst_10x15x01x0015.txt", header = T)
-	pwr4.n10l15t0015sev001DH <- read.table("/Users/mist/Documents/Projects/morrisonicola/sims/stage2/sfs/out/num3/ss_TPHeDH/out0001_BNMnlst_10x15x001x0015.txt", header = T)
+
+        path <- "data/out/TPHeDH/"
+        
+	pwr4.n10l15t0015sev05DH <- read.table(paste(path, "out0001_BNMnlst_10x15x05x0015.txt", sep = ""), header = T)
+	pwr4.n10l15t0015sev03DH <- read.table(paste(path, "out0001_BNMnlst_10x15x03x0015.txt", sep = ""), header = T)
+	pwr4.n10l15t0015sev02DH <- read.table(paste(path, "out0001_BNMnlst_10x15x02x0015.txt", sep = ""), header = T)
+	pwr4.n10l15t0015DH <- read.table(paste(path, "out0001_BNMnlst_10x15x01x0015.txt", sep = ""), header = T)
+	pwr4.n10l15t0015sev001DH <- read.table(paste(path, "out0001_BNMnlst_10x15x001x0015.txt", sep = ""), header = T)
 
 	pwr4.n10l15t0015sev05DH$Bayes <- pwr4.n10l15t0015sev05DH$BNM / pwr4.n10l15t0015sev05DH$SNM
 	pwr4.n10l15t0015sev03DH$Bayes <- pwr4.n10l15t0015sev03DH$BNM / pwr4.n10l15t0015sev03DH$SNM
@@ -30,11 +33,11 @@ plotSevFig <- function() {
 
 	##############
 
-	pwr4.n10l15t005sev05DH <- read.table("/Users/mist/Documents/Projects/morrisonicola/sims/stage2/sfs/out/num3/ss_TPHeDH/out0001_BNMnlst_10x15x05x005.txt", header = T)
-	pwr4.n10l15t005sev03DH <- read.table("/Users/mist/Documents/Projects/morrisonicola/sims/stage2/sfs/out/num3/ss_TPHeDH/out0001_BNMnlst_10x15x03x005.txt", header = T)
-	pwr4.n10l15t005sev02DH <- read.table("/Users/mist/Documents/Projects/morrisonicola/sims/stage2/sfs/out/num3/ss_TPHeDH/out0001_BNMnlst_10x15x02x005.txt", header = T)
-	pwr4.n10l15t005DH <- read.table("/Users/mist/Documents/Projects/morrisonicola/sims/stage2/sfs/out/num3/ss_TPHeDH/out0001_BNMnlst_10x15x01x005.txt", header = T)
-	pwr4.n10l15t005sev001DH <- read.table("/Users/mist/Documents/Projects/morrisonicola/sims/stage2/sfs/out/num3/ss_TPHeDH/out0001_BNMnlst_10x15x001x005.txt", header = T)
+	pwr4.n10l15t005sev05DH <- read.table(paste(path, "out0001_BNMnlst_10x15x05x005.txt", sep = ""), header = T)
+	pwr4.n10l15t005sev03DH <- read.table(paste(path, "out0001_BNMnlst_10x15x03x005.txt", sep = ""), header = T)
+	pwr4.n10l15t005sev02DH <- read.table(paste(path, "out0001_BNMnlst_10x15x02x005.txt", sep = ""), header = T)
+	pwr4.n10l15t005DH <- read.table(paste(path, "out0001_BNMnlst_10x15x01x005.txt", sep = ""), header = T)
+	pwr4.n10l15t005sev001DH <- read.table(paste(path, "out0001_BNMnlst_10x15x001x005.txt", sep = ""), header = T)
 
 	pwr4.n10l15t005sev05DH$Bayes <- pwr4.n10l15t005sev05DH$BNM / pwr4.n10l15t005sev05DH$SNM
 	pwr4.n10l15t005sev03DH$Bayes <- pwr4.n10l15t005sev03DH$BNM / pwr4.n10l15t005sev03DH$SNM
@@ -52,11 +55,11 @@ plotSevFig <- function() {
 
 	##############
 
-	pwr4.n20l30t0015sev05DH <- read.table("/Users/mist/Documents/Projects/morrisonicola/sims/stage2/sfs/out/num3/ss_TPHeDH/out0001_BNMnlst_20x30x05x0015.txt", header = T)
-	pwr4.n20l30t0015sev03DH <- read.table("/Users/mist/Documents/Projects/morrisonicola/sims/stage2/sfs/out/num3/ss_TPHeDH/out0001_BNMnlst_20x30x03x0015.txt", header = T)
-	pwr4.n20l30t0015sev02DH <- read.table("/Users/mist/Documents/Projects/morrisonicola/sims/stage2/sfs/out/num3/ss_TPHeDH/out0001_BNMnlst_20x30x02x0015.txt", header = T)
-	pwr4.n20l30t0015DH <- read.table("/Users/mist/Documents/Projects/morrisonicola/sims/stage2/sfs/out/num3/ss_TPHeDH/out0001_BNMnlst_20x30x01x0015.txt", header = T)
-	pwr4.n20l30t0015sev001DH <- read.table("/Users/mist/Documents/Projects/morrisonicola/sims/stage2/sfs/out/num3/ss_TPHeDH/out0001_BNMnlst_20x30x001x0015.txt", header = T)
+	pwr4.n20l30t0015sev05DH <- read.table(paste(path, "out0001_BNMnlst_20x30x05x0015.txt", sep = ""), header = T)
+	pwr4.n20l30t0015sev03DH <- read.table(paste(path, "out0001_BNMnlst_20x30x03x0015.txt", sep = ""), header = T)
+	pwr4.n20l30t0015sev02DH <- read.table(paste(path, "out0001_BNMnlst_20x30x02x0015.txt", sep = ""), header = T)
+	pwr4.n20l30t0015DH <- read.table(paste(path, "out0001_BNMnlst_20x30x01x0015.txt", sep = ""), header = T)
+	pwr4.n20l30t0015sev001DH <- read.table(paste(path, "out0001_BNMnlst_20x30x001x0015.txt", sep = ""), header = T)
 
 	pwr4.n20l30t0015sev05DH$Bayes <- pwr4.n20l30t0015sev05DH$BNM / pwr4.n20l30t0015sev05DH$SNM
 	pwr4.n20l30t0015sev03DH$Bayes <- pwr4.n20l30t0015sev03DH$BNM / pwr4.n20l30t0015sev03DH$SNM
@@ -74,11 +77,11 @@ plotSevFig <- function() {
 
 	#############
 
-	pwr4.n20l30t005sev05DH <- read.table("/Users/mist/Documents/Projects/morrisonicola/sims/stage2/sfs/out/num3/ss_TPHeDH/out0001_BNMnlst_20x30x05x005.txt", header = T)
-	pwr4.n20l30t005sev03DH <- read.table("/Users/mist/Documents/Projects/morrisonicola/sims/stage2/sfs/out/num3/ss_TPHeDH/out0001_BNMnlst_20x30x03x005.txt", header = T)
-	pwr4.n20l30t005sev02DH <- read.table("/Users/mist/Documents/Projects/morrisonicola/sims/stage2/sfs/out/num3/ss_TPHeDH/out0001_BNMnlst_20x30x02x005.txt", header = T)
-	pwr4.n20l30t005DH <- read.table("/Users/mist/Documents/Projects/morrisonicola/sims/stage2/sfs/out/num3/ss_TPHeDH/out0001_BNMnlst_20x30x01x005.txt", header = T)
-	pwr4.n20l30t005sev001DH <- read.table("/Users/mist/Documents/Projects/morrisonicola/sims/stage2/sfs/out/num3/ss_TPHeDH/out0001_BNMnlst_20x30x001x005.txt", header = T)
+	pwr4.n20l30t005sev05DH <- read.table(paste(path, "out0001_BNMnlst_20x30x05x005.txt", sep = ""), header = T)
+	pwr4.n20l30t005sev03DH <- read.table(paste(path, "out0001_BNMnlst_20x30x03x005.txt", sep = ""), header = T)
+	pwr4.n20l30t005sev02DH <- read.table(paste(path, "out0001_BNMnlst_20x30x02x005.txt", sep = ""), header = T)
+	pwr4.n20l30t005DH <- read.table(paste(path, "out0001_BNMnlst_20x30x01x005.txt", sep = ""), header = T)
+	pwr4.n20l30t005sev001DH <- read.table(paste(path, "out0001_BNMnlst_20x30x001x005.txt", sep = ""), header = T)
 
 	pwr4.n20l30t005sev05DH$Bayes <- pwr4.n20l30t005sev05DH$BNM / pwr4.n20l30t005sev05DH$SNM
 	pwr4.n20l30t005sev03DH$Bayes <- pwr4.n20l30t005sev03DH$BNM / pwr4.n20l30t005sev03DH$SNM
@@ -158,6 +161,36 @@ plotSevFig <- function() {
 }
 
 plotProduct <- function() {
+    get.bayes <- function(table.name, factor) {
+		table.name$Bayes <- table.name$BNM / table.name$SNM
+		length(table.name[table.name$Bayes >= factor, ]$Bayes) / length(table.name$Bayes)
+	}
+
+    path <- "data/out/TPHeDH/"
+
+    pwr001.TPHeDH.n10l1s01t0015 <- read.table(paste(path, "out0001_BNMnlst_10x1x01x0015.txt", sep = ""), header = T)
+	pwr001.TPHeDH.n10l5s01t0015 <- read.table(paste(path, "out0001_BNMnlst_10x5x01x0015.txt", sep = ""), header = T)
+	pwr001.TPHeDH.n10l15s01t0015 <- read.table(paste(path, "out0001_BNMnlst_10x15x01x0015.txt", sep = ""), header = T)
+	pwr001.TPHeDH.n10l30s01t0015 <- read.table(paste(path, "out0001_BNMnlst_10x30x01x0015.txt", sep = ""), header = T)
+	pwr001.TPHeDH.n10l45s01t0015 <- read.table(paste(path, "out0001_BNMnlst_10x45x01x0015.txt", sep = ""), header = T)
+	pwr001.TPHeDH.n10l60s01t0015 <- read.table(paste(path, "out0001_BNMnlst_10x60x01x0015.txt", sep = ""), header = T)
+
+	pwr001.TPHeDH.n20l1s01t0015 <- read.table(paste(path, "out0001_BNMnlst_20x1x01x0015.txt", sep = ""), header = T)
+	pwr001.TPHeDH.n20l5s01t0015 <- read.table(paste(path, "out0001_BNMnlst_20x5x01x0015.txt", sep = ""), header = T)
+	pwr001.TPHeDH.n20l30s01t0015 <- read.table(paste(path, "out0001_BNMnlst_20x30x01x0015.txt", sep = ""), header = T)
+	pwr001.TPHeDH.n20l45s01t0015 <- read.table(paste(path, "out0001_BNMnlst_20x45x01x0015.txt", sep = ""), header = T)
+	pwr001.TPHeDH.n20l60s01t0015 <- read.table(paste(path, "out0001_BNMnlst_20x60x01x0015.txt", sep = ""), header = T)
+
+
+	pwr001.TPHeDH.n5l15s01t0015 <- read.table(paste(path, "out0001_BNMnlst_5x15x01x0015.txt", sep = ""), header = T)
+	pwr001.TPHeDH.n20l15s01t0015 <- read.table(paste(path, "out0001_BNMnlst_20x15x01x0015.txt", sep = ""), header = T)
+	pwr001.TPHeDH.n30l15s01t0015 <- read.table(paste(path, "out0001_BNMnlst_30x15x01x0015.txt", sep = ""), header = T)
+	pwr001.TPHeDH.n40l15s01t0015 <- read.table(paste(path, "out0001_BNMnlst_40x15x01x0015.txt", sep = ""), header = T)
+
+	pwr001.TPHeDH.n5l30s01t0015 <- read.table(paste(path, "out0001_BNMnlst_5x30x01x0015.txt", sep = ""), header = T)
+	pwr001.TPHeDH.n30l30s01t0015 <- read.table(paste(path, "out0001_BNMnlst_30x30x01x0015.txt", sep = ""), header = T)
+	pwr001.TPHeDH.n40l30s01t0015 <- read.table(paste(path, "out0001_BNMnlst_40x30x01x0015.txt", sep = ""), header = T)
+    
 	neutralCol <- "grey65"
 	moreSamples <- "tomato3"
 	moreLoci <- "tan1"
@@ -212,48 +245,51 @@ plotSampleLoci <- function() {
 		table.name$Bayes <- table.name$BNM / table.name$SNM
 		length(table.name[table.name$Bayes >= factor, ]$Bayes) / length(table.name$Bayes)
 	}
-	pwr001.TPHeDH.n10l1s01t0015 <- read.table("/Users/mist/Documents/Projects/morrisonicola/sims/stage2/sfs/out/num3/ss_TPHeDH/out0001_BNMnlst_10x1x01x0015.txt", header = T)
-	pwr001.TPHeDH.n10l5s01t0015 <- read.table("/Users/mist/Documents/Projects/morrisonicola/sims/stage2/sfs/out/num3/ss_TPHeDH/out0001_BNMnlst_10x5x01x0015.txt", header = T)
-	pwr001.TPHeDH.n10l15s01t0015 <- read.table("/Users/mist/Documents/Projects/morrisonicola/sims/stage2/sfs/out/num3/ss_TPHeDH/out0001_BNMnlst_10x15x01x0015.txt", header = T)
-	pwr001.TPHeDH.n10l30s01t0015 <- read.table("/Users/mist/Documents/Projects/morrisonicola/sims/stage2/sfs/out/num3/ss_TPHeDH/out0001_BNMnlst_10x30x01x0015.txt", header = T)
-	pwr001.TPHeDH.n10l45s01t0015 <- read.table("/Users/mist/Documents/Projects/morrisonicola/sims/stage2/sfs/out/num3/ss_TPHeDH/out0001_BNMnlst_10x45x01x0015.txt", header = T)
-	pwr001.TPHeDH.n10l60s01t0015 <- read.table("/Users/mist/Documents/Projects/morrisonicola/sims/stage2/sfs/out/num3/ss_TPHeDH/out0001_BNMnlst_10x60x01x0015.txt", header = T)
 
-	pwr001.TPHeDH.n20l1s01t0015 <- read.table("/Users/mist/Documents/Projects/morrisonicola/sims/stage2/sfs/out/num3/ss_TPHeDH/out0001_BNMnlst_20x1x01x0015.txt", header = T)
-	pwr001.TPHeDH.n20l5s01t0015 <- read.table("/Users/mist/Documents/Projects/morrisonicola/sims/stage2/sfs/out/num3/ss_TPHeDH/out0001_BNMnlst_20x5x01x0015.txt", header = T)
-	pwr001.TPHeDH.n20l30s01t0015 <- read.table("/Users/mist/Documents/Projects/morrisonicola/sims/stage2/sfs/out/num3/ss_TPHeDH/out0001_BNMnlst_20x30x01x0015.txt", header = T)
-	pwr001.TPHeDH.n20l45s01t0015 <- read.table("/Users/mist/Documents/Projects/morrisonicola/sims/stage2/sfs/out/num3/ss_TPHeDH/out0001_BNMnlst_20x45x01x0015.txt", header = T)
-	pwr001.TPHeDH.n20l60s01t0015 <- read.table("/Users/mist/Documents/Projects/morrisonicola/sims/stage2/sfs/out/num3/ss_TPHeDH/out0001_BNMnlst_20x60x01x0015.txt", header = T)
+        path <- "data/out/TPHeDH/"
+        
+	pwr001.TPHeDH.n10l1s01t0015 <- read.table(paste(path, "out0001_BNMnlst_10x1x01x0015.txt", sep = ""), header = T)
+	pwr001.TPHeDH.n10l5s01t0015 <- read.table(paste(path, "out0001_BNMnlst_10x5x01x0015.txt", sep = ""), header = T)
+	pwr001.TPHeDH.n10l15s01t0015 <- read.table(paste(path, "out0001_BNMnlst_10x15x01x0015.txt", sep = ""), header = T)
+	pwr001.TPHeDH.n10l30s01t0015 <- read.table(paste(path, "out0001_BNMnlst_10x30x01x0015.txt", sep = ""), header = T)
+	pwr001.TPHeDH.n10l45s01t0015 <- read.table(paste(path, "out0001_BNMnlst_10x45x01x0015.txt", sep = ""), header = T)
+	pwr001.TPHeDH.n10l60s01t0015 <- read.table(paste(path, "out0001_BNMnlst_10x60x01x0015.txt", sep = ""), header = T)
+
+	pwr001.TPHeDH.n20l1s01t0015 <- read.table(paste(path, "out0001_BNMnlst_20x1x01x0015.txt", sep = ""), header = T)
+	pwr001.TPHeDH.n20l5s01t0015 <- read.table(paste(path, "out0001_BNMnlst_20x5x01x0015.txt", sep = ""), header = T)
+	pwr001.TPHeDH.n20l30s01t0015 <- read.table(paste(path, "out0001_BNMnlst_20x30x01x0015.txt", sep = ""), header = T)
+	pwr001.TPHeDH.n20l45s01t0015 <- read.table(paste(path, "out0001_BNMnlst_20x45x01x0015.txt", sep = ""), header = T)
+	pwr001.TPHeDH.n20l60s01t0015 <- read.table(paste(path, "out0001_BNMnlst_20x60x01x0015.txt", sep = ""), header = T)
 
 
-	pwr001.TPHeDH.n5l15s01t0015 <- read.table("/Users/mist/Documents/Projects/morrisonicola/sims/stage2/sfs/out/num3/ss_TPHeDH/out0001_BNMnlst_5x15x01x0015.txt", header = T)
-	pwr001.TPHeDH.n20l15s01t0015 <- read.table("/Users/mist/Documents/Projects/morrisonicola/sims/stage2/sfs/out/num3/ss_TPHeDH/out0001_BNMnlst_20x15x01x0015.txt", header = T)
-	pwr001.TPHeDH.n30l15s01t0015 <- read.table("/Users/mist/Documents/Projects/morrisonicola/sims/stage2/sfs/out/num3/ss_TPHeDH/out0001_BNMnlst_30x15x01x0015.txt", header = T)
-	pwr001.TPHeDH.n40l15s01t0015 <- read.table("/Users/mist/Documents/Projects/morrisonicola/sims/stage2/sfs/out/num3/ss_TPHeDH/out0001_BNMnlst_40x15x01x0015.txt", header = T)
+	pwr001.TPHeDH.n5l15s01t0015 <- read.table(paste(path, "out0001_BNMnlst_5x15x01x0015.txt", sep = ""), header = T)
+	pwr001.TPHeDH.n20l15s01t0015 <- read.table(paste(path, "out0001_BNMnlst_20x15x01x0015.txt", sep = ""), header = T)
+	pwr001.TPHeDH.n30l15s01t0015 <- read.table(paste(path, "out0001_BNMnlst_30x15x01x0015.txt", sep = ""), header = T)
+	pwr001.TPHeDH.n40l15s01t0015 <- read.table(paste(path, "out0001_BNMnlst_40x15x01x0015.txt", sep = ""), header = T)
 
-	pwr001.TPHeDH.n5l30s01t0015 <- read.table("/Users/mist/Documents/Projects/morrisonicola/sims/stage2/sfs/out/num3/ss_TPHeDH/out0001_BNMnlst_5x30x01x0015.txt", header = T)
-	pwr001.TPHeDH.n30l30s01t0015 <- read.table("/Users/mist/Documents/Projects/morrisonicola/sims/stage2/sfs/out/num3/ss_TPHeDH/out0001_BNMnlst_30x30x01x0015.txt", header = T)
-	pwr001.TPHeDH.n40l30s01t0015 <- read.table("/Users/mist/Documents/Projects/morrisonicola/sims/stage2/sfs/out/num3/ss_TPHeDH/out0001_BNMnlst_40x30x01x0015.txt", header = T)
+	pwr001.TPHeDH.n5l30s01t0015 <- read.table(paste(path, "out0001_BNMnlst_5x30x01x0015.txt", sep = ""), header = T)
+	pwr001.TPHeDH.n30l30s01t0015 <- read.table(paste(path, "out0001_BNMnlst_30x30x01x0015.txt", sep = ""), header = T)
+	pwr001.TPHeDH.n40l30s01t0015 <- read.table(paste(path, "out0001_BNMnlst_40x30x01x0015.txt", sep = ""), header = T)
 
 
 	#pwr001.TPHeDH.n20l30s01t0015 <- read.table("/Users/mist/Documents/Projects/morrisonicola/sims/stage2/sfs/out/num3/ss_TPHeDH/out0001_BNMnlst_20x30x01x0015.txt", header = T)
 
-	fls001.TPHeDH.n10l1s01t0015 <- read.table("/Users/mist/Documents/Projects/morrisonicola/sims/stage2/sfs/out/num3/ss_TPHeDH/out0001_SNMnlst_10x1x01x0015.txt", header = T)
-	fls001.TPHeDH.n10l5s01t0015 <- read.table("/Users/mist/Documents/Projects/morrisonicola/sims/stage2/sfs/out/num3/ss_TPHeDH/out0001_SNMnlst_10x5x01x0015.txt", header = T)
-	fls001.TPHeDH.n10l15s01t0015 <- read.table("/Users/mist/Documents/Projects/morrisonicola/sims/stage2/sfs/out/num3/ss_TPHeDH/out0001_SNMnlst_10x15x01x0015.txt", header = T)
-	fls001.TPHeDH.n10l30s01t0015 <- read.table("/Users/mist/Documents/Projects/morrisonicola/sims/stage2/sfs/out/num3/ss_TPHeDH/out0001_SNMnlst_10x30x01x0015.txt", header = T)
-	fls001.TPHeDH.n10l45s01t0015 <- read.table("/Users/mist/Documents/Projects/morrisonicola/sims/stage2/sfs/out/num3/ss_TPHeDH/out0001_SNMnlst_10x45x01x0015.txt", header = T)
-	fls001.TPHeDH.n10l60s01t0015 <- read.table("/Users/mist/Documents/Projects/morrisonicola/sims/stage2/sfs/out/num3/ss_TPHeDH/out0001_SNMnlst_10x60x01x0015.txt", header = T)
+	fls001.TPHeDH.n10l1s01t0015 <- read.table(paste(path, "out0001_SNMnlst_10x1x01x0015.txt", sep = ""), header = T)
+	fls001.TPHeDH.n10l5s01t0015 <- read.table(paste(path, "out0001_SNMnlst_10x5x01x0015.txt", sep = ""), header = T)
+	fls001.TPHeDH.n10l15s01t0015 <- read.table(paste(path, "out0001_SNMnlst_10x15x01x0015.txt", sep = ""), header = T)
+	fls001.TPHeDH.n10l30s01t0015 <- read.table(paste(path, "out0001_SNMnlst_10x30x01x0015.txt", sep = ""), header = T)
+	fls001.TPHeDH.n10l45s01t0015 <- read.table(paste(path, "out0001_SNMnlst_10x45x01x0015.txt", sep = ""), header = T)
+	fls001.TPHeDH.n10l60s01t0015 <- read.table(paste(path, "out0001_SNMnlst_10x60x01x0015.txt", sep = ""), header = T)
 
-	fls001.TPHeDH.n5l15s01t0015 <- read.table("/Users/mist/Documents/Projects/morrisonicola/sims/stage2/sfs/out/num3/ss_TPHeDH/out0001_SNMnlst_5x15x01x0015.txt", header = T)
-	fls001.TPHeDH.n20l15s01t0015 <- read.table("/Users/mist/Documents/Projects/morrisonicola/sims/stage2/sfs/out/num3/ss_TPHeDH/out0001_SNMnlst_20x15x01x0015.txt", header = T)
-	fls001.TPHeDH.n30l15s01t0015 <- read.table("/Users/mist/Documents/Projects/morrisonicola/sims/stage2/sfs/out/num3/ss_TPHeDH/out0001_SNMnlst_30x15x01x0015.txt", header = T)
-	fls001.TPHeDH.n40l15s01t0015 <- read.table("/Users/mist/Documents/Projects/morrisonicola/sims/stage2/sfs/out/num3/ss_TPHeDH/out0001_SNMnlst_40x15x01x0015.txt", header = T)
+	fls001.TPHeDH.n5l15s01t0015 <- read.table(paste(path, "out0001_SNMnlst_5x15x01x0015.txt", sep = ""), header = T)
+	fls001.TPHeDH.n20l15s01t0015 <- read.table(paste(path, "out0001_SNMnlst_20x15x01x0015.txt", sep = ""), header = T)
+	fls001.TPHeDH.n30l15s01t0015 <- read.table(paste(path, "out0001_SNMnlst_30x15x01x0015.txt", sep = ""), header = T)
+	fls001.TPHeDH.n40l15s01t0015 <- read.table(paste(path, "out0001_SNMnlst_40x15x01x0015.txt", sep = ""), header = T)
 
 	#fls001.TPHeDH.n20l30s01t0015 <- read.table("/Users/mist/Documents/Projects/morrisonicola/sims/stage2/sfs/out/num3/ss_TPHeDH/out0001_SNMnlst_20x30x01x0015.txt", header = T)
 
-	pwr001.TPHeDH.n10l15s01t005 <- read.table("/Users/mist/Documents/Projects/morrisonicola/sims/stage2/sfs/out/num3/ss_TPHeDH/out0001_BNMnlst_10x15x01x005.txt", header = T)
-	pwr001.TPHeDH.n20l30s01t005 <- read.table("/Users/mist/Documents/Projects/morrisonicola/sims/stage2/sfs/out/num3/ss_TPHeDH/out0001_BNMnlst_20x30x01x005.txt", header = T)
+	pwr001.TPHeDH.n10l15s01t005 <- read.table(paste(path, "out0001_BNMnlst_10x15x01x005.txt", sep = ""), header = T)
+	pwr001.TPHeDH.n20l30s01t005 <- read.table(paste(path, "out0001_BNMnlst_20x30x01x005.txt", sep = ""), header = T)
 
 	pwr.l15x <- c(5, 10, 20, 30, 40)
 	pwr.l15x2 <- pwr.l15x^2
@@ -333,7 +369,9 @@ if (plotType == "original") {
 	plotSampleLoci()
 	plotProduct()
 } else if(plotType == "all4") {
-	pdf("sample_loci_sev.pdf")
+	#pdf("sample_loci_sev.pdf")
+    setEPS()
+    postscript("F5_sample_loci_sev.eps")
 	par(mfrow = c(2, 2))
 	plotSevFig()
 	plotProduct()

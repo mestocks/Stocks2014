@@ -1,4 +1,6 @@
 #pdf("F2_PCAsumstats1234.pdf", width = 13, height = 7)
+#setEPS()
+#postscript("F2_PCAsumstats1234.eps", width = 13, height = 7)
 
 type <- 'bnm1234'
 
@@ -89,17 +91,21 @@ if (type == 'all') {
     
     par(mfrow = c(1, 2))
 	
-    data <- read.table("PCAsumstats2_bnm4pcs.txt", header = F)
-    contr <- read.table("PCcontrBNM.txt", header = F)
+    data <- read.table("data/PCAsumstats2_bnm4pcs.txt", header = F)
+    contr <- read.table("data/PCcontrBNM.txt", header = F)
     contrPC1 <- round(contr$V1[1] * 100, digits = 2)
     contrPC2 <- round(contr$V1[2] * 100, digits = 2)
     contrPC3 <- round(contr$V1[3] * 100, digits = 2)
     contrPC4 <- round(contr$V1[4] * 100, digits = 2)
     
-	meanCol = rgb(0, 0, 255, 150, maxColorValue = 255)
-	q95Col = rgb(255, 0, 0, 150, maxColorValue = 255)
-	q05Col = rgb(255, 0, 0, 150, maxColorValue = 255)
-	sdCol = rgb(255, 0, 0, 150, maxColorValue = 255)
+	#meanCol = rgb(0, 0, 255, 150, maxColorValue = 255)
+	#q95Col = rgb(255, 0, 0, 150, maxColorValue = 255)
+	#q05Col = rgb(255, 0, 0, 150, maxColorValue = 255)
+	#sdCol = rgb(255, 0, 0, 150, maxColorValue = 255)
+    meanCol = "steelblue"
+    q95Col = "tomato3"
+    q05Col = "tomato3"
+    sdCol = "tomato3"
 
 	colors = c(meanCol, sdCol, q05Col, q95Col, 
 			meanCol, sdCol, q05Col, q95Col, 

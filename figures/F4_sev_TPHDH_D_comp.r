@@ -45,6 +45,8 @@ obsSNM.n20l30t0015SFS3 <- read.table(paste(obs.path, "obs_SNMnlst_20x30x01x0015.
 
 #########################
 #pdf("F4_sev_TPHDH_D_comp.pdf", width = 8, height = 8)
+#setEPS()
+#postscript("F4_sev_TPHDH_D_comp.eps", width = 8, height = 8)
 par(mfrow = c(2, 2))
 #########################
 

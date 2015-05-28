@@ -1,6 +1,14 @@
 # source("http://bioconductor.org/biocLite.R")
 # biocLite("Heatplus")
 
+#setEPS()
+#postscript("full_corrplot.eps")
+
+#bitmap("full_corrplot.tiff", height = 7, width = 7, units = 'in', type="tifflzw")
+#png("full_corrplot.png")
+
+tiff("full_corrplot.tiff")
+
 library(Heatplus)
 library(RColorBrewer)
 
@@ -32,4 +40,4 @@ rownames(bnm) = bnmNames
 heatmap_2(bnm, Rowv = NA, Colv = NA, col = bnmCols, scale = "none", 
 		breaks = c(-1.1, -.8, -.6, -.4, -.2, -.05, .05, .2, .4, .6, .8, 1.1), legend = 2)
 
-#dev.off()
+dev.off()
